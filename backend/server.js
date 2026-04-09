@@ -5,6 +5,7 @@ require("dotenv").config();
 const express = require("express");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const noteRoutes = require("./routes/noteRoutes");
 
 // 3. Create app
 const app = express();
@@ -17,6 +18,7 @@ connectDB();
 
 // 6. Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/notes", noteRoutes);
 
 // Test route
 app.get("/", (req, res) => {
