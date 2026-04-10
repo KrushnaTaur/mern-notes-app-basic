@@ -1,6 +1,6 @@
 const Note = require("../models/Note");
 
-// CREATE NOTE
+// Create Note
 exports.createNote = async (req, res) => {
   try {
     const { title, content } = req.body;
@@ -8,34 +8,35 @@ exports.createNote = async (req, res) => {
     const note = await Note.create({
       title,
       content,
-      user: req.user // from token
+      user: req.user
     });
 
     res.status(201).json(note);
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
-// GET ALL NOTES (only of logged user)
+// Get Notes
 exports.getNotes = async (req, res) => {
   try {
-    const notes = await Note.find({ user: req.user });
+    const notes = await Note.find({ user: req.user }).sort({ createdAt: -1 });
     res.json(notes);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
-// UPDATE NOTE
+// Update Note
 exports.updateNote = async (req, res) => {
   try {
     const note = await Note.findById(req.params.id);
 
-    if (!note) return res.status(404).json({ message: "Note not found" });
+    if (!note) {
+      return res.status(404).json({ message: "Note not found" });
+    }
 
-    // Check ownership
     if (note.user.toString() !== req.user) {
       return res.status(401).json({ message: "Not authorized" });
     }
@@ -43,23 +44,24 @@ exports.updateNote = async (req, res) => {
     note.title = req.body.title || note.title;
     note.content = req.body.content || note.content;
 
-    const updated = await note.save();
+    const updatedNote = await note.save();
 
-    res.json(updated);
+    res.json(updatedNote);
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
-// DELETE NOTE
+// Delete Note
 exports.deleteNote = async (req, res) => {
   try {
     const note = await Note.findById(req.params.id);
 
-    if (!note) return res.status(404).json({ message: "Note not found" });
+    if (!note) {
+      return res.status(404).json({ message: "Note not found" });
+    }
 
-    // Check ownership
     if (note.user.toString() !== req.user) {
       return res.status(401).json({ message: "Not authorized" });
     }
@@ -69,6 +71,6 @@ exports.deleteNote = async (req, res) => {
     res.json({ message: "Note deleted" });
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 };

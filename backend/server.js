@@ -1,24 +1,25 @@
-// 1. Load env variables
+// Load environment variables
 require("dotenv").config();
 
-// 2. Import packages
+// Imports
 const express = require("express");
 const cors = require("cors");
+
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const noteRoutes = require("./routes/noteRoutes");
 
-// 3. Create app
+// Create app
 const app = express();
-app.use(cors());
 
-// 4. Middleware
+// Middleware
+app.use(cors());
 app.use(express.json());
 
-// 5. Connect Database
+// Connect DB
 connectDB();
 
-// 6. Routes
+// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/notes", noteRoutes);
 
@@ -27,10 +28,10 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// 7. Port
-const PORT = 5000;
+// Port
+const PORT = process.env.PORT || 5000;
 
-// 8. Start server
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

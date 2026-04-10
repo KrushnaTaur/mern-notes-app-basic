@@ -9,7 +9,6 @@ const {
   deleteNote
 } = require("../controllers/noteController");
 
-// Protected routes
 router.post("/", protect, createNote);
 router.get("/", protect, getNotes);
 router.put("/:id", protect, updateNote);

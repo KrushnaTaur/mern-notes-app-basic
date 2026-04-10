@@ -6,22 +6,29 @@
 </head>
 <body>
 
-  <h3 id="userInfo">Welcome 👋</h3>
+  <div class="container">
 
-  <button onclick="logout()">Logout</button>
-  <h2>My Notes</h2>
+    <div class="header">
+      <h2>📝 Notes App</h2>
+      <div>
+        <span id="userInfo">Welcome 👋</span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </div>
 
+    <div class="form-card">
+      <h3>Add / Edit Note</h3>
+      <form id="noteForm">
+        <input type="text" id="title" placeholder="Title" required>
+        <textarea id="content" placeholder="Content" required></textarea>
+        <button type="submit">Save Note</button>
+      </form>
+    </div>
 
-  
+    <h3>Your Notes</h3>
+    <div id="notesList" class="notes-grid"></div>
 
-  <form id="noteForm">
-    <input type="text" id="title" placeholder="Title" required><br><br>
-    <input type="text" id="content" placeholder="Content" required><br><br>
-    <button type="submit">Add Note</button>
-  </form>
-
-  <h3>All Notes:</h3>
-  <ul id="notesList"></ul>
+  </div>
 
   <script src="js/dashboard.js"></script>
 </body>

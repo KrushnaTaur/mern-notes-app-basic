@@ -7,14 +7,12 @@ if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    console.log("Signup clicked"); // DEBUG
-
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signup", {
+      const res = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -22,16 +20,12 @@ if (signupForm) {
         body: JSON.stringify({ name, email, password })
       });
 
-      console.log("Response received"); // DEBUG
-
       const data = await res.json();
-      console.log(data); // DEBUG
 
       alert(data.message);
       window.location.href = "index.html";
 
     } catch (error) {
-      console.error("ERROR:", error); // DEBUG
       alert("Something went wrong");
     }
   });
@@ -39,6 +33,7 @@ if (signupForm) {
 
 // Login
 const loginForm = document.getElementById("loginForm");
+
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();

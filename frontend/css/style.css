@@ -1,15 +1,85 @@
 body {
-  font-family: Arial;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+/* Container */
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Form Card */
+.form-card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
   text-align: center;
-  margin-top: 50px;
 }
 
-input {
+.form-card input,
+.form-card textarea {
+  width: 100%;
   padding: 10px;
-  width: 200px;
+  margin: 10px 0;
 }
 
-button {
+.form-card button {
+  background: #007bff;
+  color: white;
+  border: none;
   padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Notes Grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* Note Card */
+.note-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.note-card h4 {
+  margin: 0;
+}
+
+.note-card p {
+  margin: 10px 0;
+}
+
+.note-card button {
+  margin-right: 5px;
+  padding: 5px 10px;
   cursor: pointer;
 }
