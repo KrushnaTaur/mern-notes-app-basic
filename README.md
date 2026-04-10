@@ -1,36 +1,45 @@
-# 📝 MERN Notes App (Basic)
+# 📝 Notes App (Full Stack)
 
-A simple full-stack Notes Application with Authentication using Node.js, Express, MongoDB Atlas, and Vanilla JavaScript.
+A full-stack Notes Application with authentication and CRUD functionality, built using Node.js, Express, MongoDB Atlas, and Vanilla JavaScript.
+
+---
+
+## 🌐 Live Demo
+
+* 🔗 Frontend: https://notesapp-krushnataur.vercel.app
+* 🔗 Backend API: https://notes-app-backend-m0wy.onrender.com
 
 ---
 
 ## 🚀 Features
 
-* 🔐 User Signup & Login (JWT Authentication)
-* 🛡️ Protected Dashboard Route
+* 🔐 User Authentication (Signup & Login with JWT)
+* 🛡️ Protected Routes (Backend + Frontend)
 * 📝 Create Notes
-* 📄 View Notes
+* 📄 Read Notes (User-specific)
+* ✏️ Update Notes
 * ❌ Delete Notes
-* 💾 Data stored in MongoDB Atlas (Cloud)
+* 👤 Logged-in User Display
+* 🔓 Logout Functionality
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend:
+**Frontend**
 
 * HTML
 * CSS
 * JavaScript (Vanilla JS)
 
-### Backend:
+**Backend**
 
 * Node.js
 * Express.js
 
-### Database:
+**Database**
 
-* MongoDB Atlas
+* MongoDB Atlas (Cloud)
 
 ---
 
@@ -41,8 +50,8 @@ mern-notes-app-basic/
 │
 ├── backend/
 │   ├── models/
-│   ├── routes/
 │   ├── controllers/
+│   ├── routes/
 │   ├── middleware/
 │   ├── config/
 │   └── server.js
@@ -59,9 +68,9 @@ mern-notes-app-basic/
 
 ---
 
-## ⚙️ Setup Instructions
+## ⚙️ Local Setup
 
-### 1️⃣ Clone the Repository
+### 1. Clone Repository
 
 ```
 git clone https://github.com/KrushnaTaur/mern-notes-app-basic.git
@@ -70,21 +79,21 @@ cd mern-notes-app-basic
 
 ---
 
-### 2️⃣ Setup Backend
+### 2. Setup Backend
 
 ```
 cd backend
 npm install
 ```
 
-Create a `.env` file inside backend folder:
+Create `.env` file:
 
 ```
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
 
-Run backend server:
+Run server:
 
 ```
 npm run dev
@@ -92,20 +101,20 @@ npm run dev
 
 ---
 
-### 3️⃣ Run Frontend
+### 3. Run Frontend
 
-* Open `frontend/index.html` using Live Server (VS Code extension)
+* Open `frontend/index.html` using Live Server
 
 ---
 
 ## 🔑 API Endpoints
 
-### 🔐 Authentication
+### Authentication
 
 * POST `/api/auth/signup`
 * POST `/api/auth/login`
 
-### 📝 Notes
+### Notes
 
 * GET `/api/notes`
 * POST `/api/notes`
@@ -114,32 +123,17 @@ npm run dev
 
 ---
 
-## 🧪 How to Use
+## 🧪 Usage
 
-1. Signup a new account
-2. Login with your credentials
-3. Add notes
-4. View all notes
-5. Delete notes
-
----
-
-## 🚀 Future Improvements
-
-* ✏️ Update Notes feature
-* 🔓 Logout functionality
-* 🎨 Better UI (cards, styling)
-* ⚛️ Convert frontend to React
-* 🌐 Deploy project (Render + Netlify)
+1. Create an account (Signup)
+2. Login securely
+3. Add, edit, and delete notes
+4. Data is stored per user
 
 ---
 
-## 👨‍💻 Author
+## 🚀 Deployment
 
-**Krushna Taur**
+* Backend deployed on Render
+* Frontend deployed on Vercel
 
-AI & DS Student 🚀
-
-Building real-world projects step by step
-
----
