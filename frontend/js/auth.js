@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://notes-app-backend-m0wy.onrender.com/api/auth";
 
 // Signup
 const signupForm = document.getElementById("signupForm");
