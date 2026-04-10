@@ -12,7 +12,7 @@ if (user) {
   document.getElementById("userInfo").innerText = `Welcome, ${user.name} 👋`;
 }
 
-const API_URL = "http://localhost:5000/api/notes";
+const API_URL = "https://notes-app-backend-m0wy.onrender.com/api/notes";
 
 let editId = null;
 
